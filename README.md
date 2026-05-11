@@ -71,3 +71,4 @@ a GDExtension Rust library for the full protocol stack.
 - Escape - release mouse
 - F1 - recapture mouse
 - F2 - save drift log to CSV
+
