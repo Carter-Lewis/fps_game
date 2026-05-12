@@ -20,14 +20,14 @@ if not os.path.exists(cert_file):
     ], check=True)
     print(f"Certificate generated: {cert_file}")
 
-class COIHandler(http.server.SimpleHTTPRequestHandler):
+port = 8000
+class Handler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_header("Cross-Origin-Opener-Policy", "same-origin")
         self.send_header("Cross-Origin-Embedder-Policy", "require-corp")
         super().end_headers()
 
-port = 8000
-handler = COIHandler
+handler = Handler
 
 # Create SSL context with modern API
 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
